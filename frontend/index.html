@@ -1,0 +1,26 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>SynapsePR</title>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script>
+      // Diagnostic fallback so the page shows something if the module fails to load
+      try {
+        document.getElementById("root").textContent = "Loading app...";
+      } catch (e) {
+        console.error("index.html fallback error", e);
+      }
+      window.addEventListener("error", (e) =>
+        console.error("PAGE_ERROR", e.message),
+      );
+      window.addEventListener("unhandledrejection", (e) =>
+        console.error("UNHANDLED_REJECTION", e.reason),
+      );
+    </script>
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
+</html>
